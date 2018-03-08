@@ -1,4 +1,6 @@
-  //accident location (dot map with labels)  
+function initMap(){
+    console.log('lib loaded');
+  //accident location (dot map with labels)
    // Create the Google Map…
   var map = new google.maps.Map(d3.select("#map").node(), {
     zoom:11,
@@ -396,3 +398,4 @@
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis);
         })
+}
