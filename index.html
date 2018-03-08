@@ -1,14 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, World!</h1>
 
-    <script src="https://d3js.org/d3.v4.min.js"></script> 
-    <script src="js/d3.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Visual Analytics: ICBC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="col-4 title">
+      <a href="index.html">
+        <img class="logo" src="img/logo.png" alt="logo">
+      </a>
+    </div>
+    <nav class="col-8">
+      <ul class="nav">
+        <li class="nav_item">
+          <a href="#crash">Crash Map</a>
+        </li>
+        <li class="nav_item">
+          <a href="#num_accident">Crash Numbers</a>
+        </li>
+        <li class="nav_item">
+          <a href="#op_cost">Operating Cost</a>
+        </li>
+        <li class="nav_item">
+          <a href="#ins_prem">Rate Hike</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <div class="row">
+    <div class="hero col-12">
+      <div class="hero_text">
+        <h1>Insurance Corporation of British Columbia</h1>
+        <h3>An exploration of Canada's most expensive auto insrance and the company's financial burden</h3>
+      </div>
+      <img class="hero_img" src="img/hero_bg.png" alt="heroimg">
+      <div class="hero_cta">
+        <a class="button_cta" href="#crash">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contentrow">
+    <div id="crash" class="col-4">
+      <h2>Crash Map in Vancouver From 2012-2015</h2>
+      <p></p>
+    </div>
+    <div id="map" class="col-10"></div>
+    <div id="num_accident" class="col-5"></div>
+    <div id="num_accident_legend" class="col-5 text_content card">
+      <div class="col-10">
+        <h2>Number of Crashes (BC overview) From 2012-2015</h2>
+        <ul>
+          <li style="color: steelblue">BC(total)</li>
+          <li style="color: goldenrod">Lower Mainland</li>
+          <li style="color: blueviolet">Vancouver Island</li>
+          <li style="color: green">Southern Interior</li>
+          <li style="color: gray">North Central</li>
+        </ul>
+      </div>
+    </div>
+    <div id="op_cost_legend" class="col-5 text_content card">
+      <div class="col-10">
+        <h2>ICBC Operating Cost From 2013-2017</h2>
+        <ul>
+          <li>Non-Insurance</li>
+          <div class="square6"></div>
+          <li>Transformation Program</li>
+          <div class="square5"></div>
+          <li>Insurance</li>
+          <div class="square4"></div>
+          <li>Claims related costs</li>
+          <div class="square3"></div>
+          <li>Claims Incurred Cost(Material Damage and Other)</li>
+          <div class="square2"></div>
+          <li>Claims Incurred Cost(Injury)</li>
+          <div class="square1"></div>
+        </ul>
+      </div>
+    </div>
+    <div id="op_cost" class="col-5"></div>
+    <div id="ins_prem" class="col-5"></div>
+    <div id="rate_legend" class="col-5 text_content card">
+      <div class="col-10">
+        <h2>Insurance Premium Hike 2013-2017</h2>
+        <ul>
+          <li>2013 Rate increase: 4.9%</li>
+          <li>2014 Rate increase: 5.2%</li>
+          <li>2015 Rate increase: 5.5%</li>
+          <li>2016 Rate increase: 4.9%</li>
+          <li>2017 Rate increase: 6.4%</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      function initMap() {
+        console.log('lib loaded')
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqaPxsEu6QTdJIz3lMeOiZzrIoWjP6Elw&callback=initMap" async
+      defer></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="d3.js"></script>
+</body>
+
 </html>
