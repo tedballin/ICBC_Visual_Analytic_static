@@ -32,9 +32,6 @@ video {
 
 a,
 button {
-    /* make sure clickable elements are easy to tap on mobile devices */
-    min-width: 48px;
-    min-height: 48px;
     text-decoration: none;
 }
 
@@ -65,10 +62,10 @@ nav {
     flex-wrap: wrap;
 }
 
-
 [class*="col-"] {
     padding: 0;
     width: 100%;
+    margin:0;
     /* border: 1px solid red; */
 }
 
@@ -113,15 +110,16 @@ nav {
     }
 }
 
-.contentrow{
+.contentrow {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.contentrow > div{
-    margin-top:5em;
+.contentrow>div {
+    margin-top: 5em;
 }
+
 .header {
     padding: .5rem 1.5rem;
     display: flex;
@@ -200,13 +198,15 @@ a:focus {
 }
 
 /* content */
-.text_content{
+
+.text_content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.text_content > div, ul {
+.text_content>div,
+ul {
     padding: 0;
     text-align: center;
 }
@@ -215,103 +215,69 @@ a:focus {
     margin: .5em 0;
 }
 
-/* .card{
-    position: relative;
-    background: #fff;
-    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
-    transition: all .3s ease;
-    max-height: 400px;
-  } */
-
-
 /* d3 css */
 
 #map {
-    width: 100%;
+    width: 80%;
     height: 500px;
     margin: 0;
     padding: 0;
-  }
+}
 
-  .loc,
-  .loc svg {
+.loc,
+.loc svg {
     position: absolute;
-  }
+}
 
-  .loc svg {
+.loc svg {
     width: 60px;
     height: 20px;
     padding-right: 100px;
     font: 10px sans-serif;
-  }
+}
 
-  .loc circle {
+.loc circle {
     fill: orange;
     stroke: black;
     stroke-width: 1.5px;
-  }
-
-path {
-    stroke: steelblue;
-    stroke-width: 2px;
-    fill: none;
 }
 
-path.line1 {
-    stroke: steelblue;
-}
-
-path.line2 {
-    stroke: goldenrod;
-}
-
-path.line3 {
-    stroke: blueviolet;
-}
-
-path.line4 {
-    stroke: green;
-}
-
-path.line5 {
-    stroke: grey;
-}
-
-rect.bar {
-    fill: palevioletred;
-}
 
 .square1 {
     width: 20px;
     height: 20px;
     background: #BEAED4;
 }
+
 .square2 {
     width: 20px;
     height: 20px;
     background: #FDC086;
 }
+
 .square3 {
     width: 20px;
     height: 20px;
     background: #067bc2;
 }
+
 .square4 {
     width: 20px;
     height: 20px;
     background: #84bcda;
 }
+
 .square5 {
     width: 20px;
     height: 20px;
     background: #7FC97F;
 }
+
 .square6 {
     width: 20px;
     height: 20px;
-    background: #f37748DD;
+    background: orange;
 }
-
 
 #barchart {
     padding: 1em;
@@ -325,10 +291,108 @@ rect.bar {
     margin: 2em;
 }
 
-#op_cost_legend ul{
-  display: flex;
-  flex-wrap:wrap;
-  flex-direction: column;
-  align-items: center;
+#op_cost_legend ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
 
+/* map */
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.tooltip {
+    text-anchor: middle;
+    font-size: 14px;
+    font-weight: bold;
+    fill: black;
+}
+.crash_map{
+    margin-top:0 !important;
+}
+
+/* hexbins */
+
+#mapContainer {
+    margin:0;
+    background-color: #333;
+    max-width: 600px;
+    height: 500px;
+}
+
+#tooltip {
+    opacity: .9;
+    background: #333;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* interaction */
+
+#data1 {
+    border-radius: 4px;
+    background-color: brown;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding:2px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#data2 {
+    border-radius: 4px;
+    background-color: slateblue;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding:2px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button {
+    align-self: flex-end;
+    margin-right: 0;
+    padding: 0;
+}
+
+.crash-type {
+    margin-top:0 !important;
+    margin-left:2em;
 }
