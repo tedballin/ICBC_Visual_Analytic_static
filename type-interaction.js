@@ -62,12 +62,12 @@
          var yAxis = d3.axisLeft(yScale);
 
          //create an arry of rect svg elements
-         chartGroup.selectAll("rect")
+         bars = chartGroup.selectAll("rect")
              .data(data) //bind data
              .enter() //create new data-bound element for each new element added in the dataset
              .append("rect")
              .attr("class", "bar")
-             .attr("fill", "brown")
+             .attr("fill", "darkred")
              .attr("x", function (d, i) {
                  return xScale(d["City"]);
              })
@@ -85,7 +85,7 @@
              .enter() // always bind data whenever needs data from the dataset
              .append("text") // append svg text element
              .attr("class", "labels")
-             .attr("fill", "brown")
+             .attr("fill", "darkred")
              .attr("font-size", "12px")
              .attr("x", function (d, i) {
                  return xScale(d["City"]);
@@ -115,13 +115,31 @@
              //adjest the position of sticks
              .attr("transform", "translate(0," + height + ")")
              .call(xAxis)
-         // .selectAll("text")
-         // .attr("y", 9)
-         // .attr("x", 2)
-         // .attr("dy", ".35em")
-         // .attr("transform", "rotate(20)")
-         // .style("text-anchor", "start");;
 
+        
+              //highlight
+         bars.on("click", function (d) {
+
+            var highlightkey = d.key;
+       
+                window.cityname =d["City"];
+             
+            console.log(cityname);
+
+            // remove previous selecitons ...
+            d3.selectAll("rect.bar").attr("fill", "darkred");
+
+            d3.select(this)
+                .attr("fill", "purple");
+
+            d3.selectAll("rect.bar").classed("dim", function (dd) {
+                if (dd.key == highlightkey)
+                    return false;
+                else
+                    return true;
+            })
+            window.update();
+        })
      });
 
  d3.select("#data2").on("click", function () {
@@ -156,11 +174,11 @@
              var yAxis = d3.axisLeft(yScale);
 
              //create an arry of rect svg elements
-             chartGroup.selectAll(".bar")
+             bars = chartGroup.selectAll("rect.bar")
                  .data(data) //bind data
                  .transition()
                  .duration(1000)
-                 .attr("fill", "slateblue")
+                 .attr("fill", "orange")
                  .attr("x", function (d, i) {
                      return xScale(d["City"]);
                  })
@@ -172,13 +190,15 @@
                      return height - yScale(d["Material"]); //height - inverted y pos, then draw from that point to bottom
                  });
 
+
+
              //create label
              chartGroup.selectAll(".labels")
                  .data(data)
                  .transition()
                  .duration(1000)
                  .delay(1000)
-                 .attr("fill", "slateblue")
+                 .attr("fill", "orange")
                  .attr("x", function (d, i) {
                      return xScale(d["City"]);
                  })
@@ -188,6 +208,7 @@
                  .text(function (d, i) {
                      return "$" + (d["Material"]);
                  })
+
              //create the group for axis
              chartGroup.select(".axis_y")
                  .transition()
@@ -201,6 +222,28 @@
                  .attr("transform", "translate(0," + height + ")")
                  .call(xAxis);
          });
+         //highlight
+         bars.on("click", function (d) {
+
+            var highlightkey = d.key;
+          cityname = d["City"];
+            console.log(cityname);
+
+            // remove previous selecitons ...
+            d3.selectAll("rect.bar").attr("fill", "orange");
+
+            d3.select(this)
+                .attr("fill", "purple");
+
+            d3.selectAll("rect.bar").classed("dim", function (dd) {
+                if (dd.key == highlightkey)
+                    return false;
+                else
+                    return true;
+            })
+            window.update();
+        })
+         
  });
 
  d3.select("#data1").on("click", function () {
@@ -235,11 +278,11 @@
              var yAxis = d3.axisLeft(yScale);
 
              //create an arry of rect svg elements
-             chartGroup.selectAll(".bar")
+             bars = chartGroup.selectAll("rect.bar")
                  .data(data) //bind data
                  .transition()
                  .duration(1000)
-                 .attr("fill", "brown")
+                 .attr("fill", "darkred")
                  .attr("x", function (d, i) {
                      return xScale(d["City"]);
                  })
@@ -250,14 +293,14 @@
                  .attr("height", function (d, i) {
                      return height - yScale(d["Injury"]); //height - inverted y pos, then draw from that point to bottom
                  });
-
+    
              //create label
              chartGroup.selectAll(".labels")
                  .data(data)
                  .transition()
                  .duration(1000)
                  .delay(1000)
-                 .attr("fill", "brown")
+                 .attr("fill", "darkred")
                  .attr("x", function (d, i) {
                      return xScale(d["City"]);
                  })
@@ -267,6 +310,7 @@
                  .text(function (d, i) {
                      return "$" + (d["Injury"]);
                  })
+                  
              //create the group for axis
              chartGroup.select(".axis_y")
                  .transition()
@@ -280,4 +324,25 @@
                  .attr("transform", "translate(0," + height + ")")
                  .call(xAxis);
          });
+         //highlight
+         bars.on("click", function (d) {
+
+            var highlightkey = d.key;
+           cityname = d["City"];
+            console.log(cityname);
+            // remove previous selecitons ...
+            d3.selectAll("rect.bart").attr("fill", "darkred");
+
+            d3.select(this)
+                .attr("fill", "purple");
+
+
+            d3.selectAll("rect.bar").classed("dim", function (dd) {
+                if (dd.key == highlightkey)
+                    return false;
+                else
+                    return true;
+            })
+
+        });
  });

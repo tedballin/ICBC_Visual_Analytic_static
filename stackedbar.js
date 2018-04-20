@@ -75,16 +75,16 @@ d3.csv("data/operating_cost.csv", function (d, i, columns) {
             return y(d[0]) - y(d[1]);
         })
         .attr("width", x.bandwidth()).on("mouseover", function () {
-            tooltip.style("display", null);
+            toolTip.style("display", null);
         })
         .on("mouseout", function () {
-            tooltip.style("display", "none");
+            toolTip.style("display", "none");
         })
         .on("mousemove", function (d) {
             var xPosition = d3.mouse(this)[0] - 15;
             var yPosition = d3.mouse(this)[1] - 25;
-            tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-            tooltip.select("text").text(-(d[0]-d[1]))
+            toolTip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+            toolTip.select("text").text(-(d[0]-d[1]))
         });
 
     g.append("g")
@@ -104,18 +104,18 @@ d3.csv("data/operating_cost.csv", function (d, i, columns) {
         .attr("text-anchor", "start")
         .text("$Million");
 
-    // Prep the tooltip bits, initial display is hidden
-    var tooltip = g.append("g")
-        .attr("class", "tooltip")
+    // Prep the toolTip bits, initial display is hidden
+    var toolTip = g.append("g")
+        .attr("class", "toolTip")
         .style("display", "none");
 
-    tooltip.append("rect")
+    toolTip.append("rect")
         .attr("width", 30)
         .attr("height", 20)
         .attr("fill", "gray")
         .style("opacity", 0.5);
 
-    tooltip.append("text")
+    toolTip.append("text")
         .attr("x", 15)
         .attr("dy", "1.2em")
         .style("text-anchor", "middle")

@@ -17,36 +17,38 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="col-4 title">
-      <a href="index.html">
-        <img class="logo" src="img/logo.png" alt="logo">
-      </a>
-    </div>
-    <nav class="col-8">
-      <ul class="nav">
-        <li class="nav_item">
-          <a href="#crash">Crash Map</a>
+  <nav class="navbar navbar-expand-sm d-flex justify-content-between">
+    <a href="index.html">
+      <img class="logo" src="img/logo.png" alt="logo">
+    </a>
+    <div class="col-sm-6 d-flex justify-content-end">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a href="#num_accident">Crash Overview</a>
         </li>
-        <li class="nav_item">
-          <a href="#num_accident">Crash Numbers</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Crash Map
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#map">Choropleth</a>
+            <a class="dropdown-item" href="#mapContainer">Hexbin and histogram</a>
         </li>
-        <li class="nav_item">
-          <a href="#op_cost">Operating Cost</a>
+        <li class="nav-item">
+          <a href="#op_cost">Operating Costs</a>
         </li>
-        <!-- <li class="nav_item">
-          <a href="#ins_prem">Rate Hike</a>
-        </li> -->
       </ul>
-    </nav>
-  </header>
+      </div>
+  </nav>
+
 
 
   <div class="row">
-    <div class="hero col-12">
+    <div class="hero col-sm-10 mx-auto">
       <div class="hero_text">
-        <h1>Insurance Corporation of British Columbia</h1>
-        <h3>An exploration of car crashes, huge claims incurred operating costs, and the company's financial burden</h3>
+        <h2>Insurance Corporation of British Columbia</h2>
+        <h5>An exploration of car crashes, huge claims incurred operating costs, and the company's financial burden</h5>
       </div>
       <img class="hero_img" src="img/hero_bg.png" alt="heroimg">
       <div class="hero_cta">
@@ -55,40 +57,47 @@
     </div>
   </div>
 
-  <div class="contentrow">
-    <div class="crash_map col-5">
-      <h2 class="col-12">Crash Map Lower Mainland 2015</h2>
-      <div id="mapContainer">
-        <div id="tooltip">
-          <svg width="100px" height="100px"></svg>
+  <div class="container">
+  
+    <div class="row align-items-center">
+      <div id="num_accident" class="col-sm-6"></div>
+    
+        <div class="col-sm-6">
+          <div id="num_accident_legend" class="text_content card">
+              <h4>Number of Crashes (overview) From 2012-2016</h4>
+          <ul>
+            <li style="color: steelblue">BC(total)</li>
+            <li style="color: goldenrod">Lower Mainland</li>
+            <li style="color: blueviolet">Vancouver Island</li>
+            <li style="color: green">Southern Interior</li>
+            <li style="color: gray">North Central</li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="crash-type col-6">
-      <h2 class="col-12">Claim Iccurd Cost Among Cities</h2>
-      <div class="button">
-        <button id="data1">Casualty Crash (Injury)</button>
-        <button id="data2">PDO Crash (Material)</button>
-      </div>
-      <div id="bar"></div>
+
+    <div class="crash_map col-sm-12 mt-5">
+      <h4 class="col-12 text-center">Crash Map Lower Mainland 2015</h4>
+      <div id="map"></div>
     </div>
-    <div id="map" class="col-10"></div>
-    <div id="num_accident" class="col-5"></div>
-    <div id="num_accident_legend" class="col-5 text_content card">
-      <div class="col-10">
-        <h2>Number of Crashes (BC overview) From 2012-2015</h2>
-        <ul>
-          <li style="color: steelblue">BC(total)</li>
-          <li style="color: goldenrod">Lower Mainland</li>
-          <li style="color: blueviolet">Vancouver Island</li>
-          <li style="color: green">Southern Interior</li>
-          <li style="color: gray">North Central</li>
-        </ul>
+    <div class="row align-items-center">
+      <div class="col-sm-6">
+        <h4>Claims Iccurd Costs in Different Cities</h4>
+        <div class="button">
+          <button id="data1">Casualty Crash (Injury)</button>
+          <button id="data2">PDO Crash (Material)</button>
+        </div>
+        <div id="bar"></div>
+      </div>
+        <div id="mapContainer" class="col-sm-6"></div>
+        <div id="tooltip">
+          <svg width="100px" height="100px"></svg>
       </div>
     </div>
-    <div id="op_cost_legend" class="col-5 text_content card">
-      <div class="col-10">
-        <h2>ICBC Operating Cost From 2013-2017</h2>
+
+    <div class="row align-items-center">
+      <div id="op_cost_legend" class="col-sm-6 text_content card">
+        <h4>Operating Costs From 2013-2017</h4>
         <ul>
           <li>Non-Insurance</li>
           <div class="square6"></div>
@@ -104,10 +113,11 @@
           <div class="square1"></div>
         </ul>
       </div>
+      <div id="op_cost" class="col-sm-6"></div>
     </div>
-    <div id="op_cost" class="col-5"></div>
-
   </div>
+ <hr />
+  <footer><p class="text-center">Linan & Yang &copy 2018</p></footer>
   <script src="crash-choropleth.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="map.js"></script>

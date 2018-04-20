@@ -49,98 +49,34 @@ p {
     font-family: "DINPro Light";
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
 
-/* grid */
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-[class*="col-"] {
-    padding: 0;
-    width: 100%;
-    margin:0;
-    /* border: 1px solid red; */
-}
-
-/* tab + pc size */
-
-@media screen and (min-width: 600px) {
-    .col-1 {
-        width: 8.33%;
-    }
-    .col-2 {
-        width: 16.66%;
-    }
-    .col-3 {
-        width: 25%;
-    }
-    .col-4 {
-        width: 33.33%;
-    }
-    .col-5 {
-        width: 41.66%;
-    }
-    .col-6 {
-        width: 50%;
-    }
-    .col-7 {
-        width: 58.33%;
-    }
-    .col-8 {
-        width: 66.66%;
-    }
-    .col-9 {
-        width: 75%;
-    }
-    .col-10 {
-        width: 83.33%;
-    }
-    .col-11 {
-        width: 91.66%;
-    }
-    .col-12 {
-        width: 100%;
-    }
-}
-
-.contentrow {
+/* .contentrow {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
 .contentrow>div {
     margin-top: 5em;
 }
 
-.header {
+.navbar {
     padding: .5rem 1.5rem;
-    display: flex;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26)
 }
 
-.nav {
-    display: flex;
+.nav-item{
+    margin-left: 2em;
 }
 
-.nav_item {
-    margin-right: 5em;
-}
-
-.nav_item a {
+.nav-item a {
     color: #0080b7;
+    text-decoration: none;
 }
 
-.nav_item a:hover,
-a:focus {
-    color: #44443E;
+.nav-item a:hover {
+    color: #0080b7;
     padding-bottom: .5em;
     border-bottom: 3px solid #009DE0;
 }
@@ -160,7 +96,6 @@ a:focus {
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
-    margin-top: 2em;
     height: 700px;
 }
 
@@ -171,7 +106,7 @@ a:focus {
     margin-top: 4em;
 }
 
-.hero h1 {
+.hero h2 {
     color: #009DE0;
 }
 
@@ -190,13 +125,23 @@ a:focus {
     position: relative;
 }
 
-.button_cta {
+.hero_cta a{
+    text-decoration: none;
     padding: .5em 1em;
     color: #009DE0;
     border: 2px solid #009DE0;
     border-radius: 10px;
 }
+.hero_cta a{
+    text-decoration: none;
+}
 
+.card{
+    padding: 2em 0;
+}
+.row{
+    margin-top: 5em;
+}
 /* content */
 
 .text_content {
@@ -218,9 +163,8 @@ ul {
 /* d3 css */
 
 #map {
-    width: 80%;
-    height: 500px;
-    margin: 0;
+    height: 400px;
+    margin-bottom: 4em;
     padding: 0;
 }
 
@@ -333,17 +277,14 @@ ul {
     font-weight: bold;
     fill: black;
 }
-.crash_map{
-    margin-top:0 !important;
-}
+
 
 /* hexbins */
 
 #mapContainer {
     margin:0;
     background-color: #333;
-    max-width: 600px;
-    height: 500px;
+    height: 400px;
 }
 
 #tooltip {
@@ -362,12 +303,11 @@ ul {
 
 #data1 {
     border-radius: 4px;
-    background-color: brown;
+    background-color: darkred;
     border: none;
     color: #FFFFFF;
     text-align: center;
-    padding:2px;
-    width: 100px;
+    padding:0.5em 1em;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -375,21 +315,18 @@ ul {
 
 #data2 {
     border-radius: 4px;
-    background-color: slateblue;
+    background-color: orange;
     border: none;
     color: #FFFFFF;
     text-align: center;
-    padding:2px;
-    width: 100px;
+    padding:0.5em 1em;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
 }
 
-.button {
-    align-self: flex-end;
-    margin-right: 0;
-    padding: 0;
+.bar{
+    cursor: pointer;
 }
 
 .crash-type {
