@@ -64,13 +64,16 @@
     
         <div class="col-sm-6">
           <div id="num_accident_legend" class="text_content card">
-              <h4>Number of Crashes (overview) From 2012-2016</h4>
+              <h4>Auto Crash Trends (overview) From 2012-2016</h4>
           <ul>
-            <li style="color: steelblue">BC(total)</li>
-            <li style="color: goldenrod">Lower Mainland</li>
-            <li style="color: blueviolet">Vancouver Island</li>
-            <li style="color: green">Southern Interior</li>
-            <li style="color: gray">North Central</li>
+            <li style="color: steelblue">Vancouver</li>
+            <li style="color: goldenrod">North Vancouver</li>
+            <li style="color: navy">West Vancouver</li>
+            <li style="color: purple">Burnaby</li>
+            <li style="color: gray">Richmond</li>
+            <li style="color: green">Coquitlam</li>
+            <li style="color: aqua">Delta</li>
+            <li style="color: red">Surrey</li>
           </ul>
         </div>
       </div>
@@ -82,17 +85,22 @@
     </div>
     <div class="row align-items-center">
       <div class="col-sm-6">
-        <h4>Claims Iccurd Costs in Different Cities</h4>
+        <h4>Claims Inccurd Costs in Different Cities</h4>
         <div class="button">
           <button id="data1">Casualty Crash (Injury)</button>
           <button id="data2">PDO Crash (Material)</button>
+          <button id="compare">Comparison</button>
         </div>
         <div id="bar"></div>
       </div>
-        <div id="mapContainer" class="col-sm-6"></div>
+      <div class="col-sm-6">
+      <h4>The Distribution of Two Types of Crashes</h4>
+        <div id="mapContainer"></div>
+      </div>
         <div id="tooltip">
           <svg width="100px" height="100px"></svg>
       </div>
+    
     </div>
 
     <div class="row align-items-center">

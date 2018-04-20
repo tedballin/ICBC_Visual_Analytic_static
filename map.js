@@ -515,13 +515,13 @@ var geojson = L.geoJson(vanData).addTo(map);
 
 //get color depending on the crash number density value
 function getColor(d) {
-    return d > 25000 ? '#800026' :
-        d > 20000 ? '#BD0026' :
-        d > 15000 ? '#E31A1C' :
-        d > 12000 ? '#FC4E2A' :
-        d > 8000 ? '#FD8D3C' :
-        d > 5000 ? '#FEB24C' :
-        d > 3000 ? '#FED976' :
+    return d > 25000 ? '#225ea8' :
+        d > 20000 ? '#1d91c0' :
+        d > 15000 ? '#41b6c4' :
+        d > 12000 ? '#7fcdbb' :
+        d > 8000 ? '#c7e9b4' :
+        d > 5000 ? '#edf8b1' :
+        d > 3000 ? '#ffffd9' :
         '#FFEDA0';
 }
 

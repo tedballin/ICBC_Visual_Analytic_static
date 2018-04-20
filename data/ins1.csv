@@ -1,9 +1,9 @@
-City,Injury
-Vancouver,824
-North Van,192
-West Van,137
-Burnaby,549 
-Richmond,495
-Coquitlam,219
-Surrey,247
-New West, 89
+City,Injury,Material
+Vancouver,824,338
+North Van,192,91
+West Van,137,65
+Burnaby,549,259
+Richmond,495,232
+Coquitlam,219,116
+Surrey,247,104
+New West, 89,39

@@ -14,11 +14,14 @@ d3.csv(url)
     .row(function (d) {
         //read column name (numbers) 
         d.Year = +d.Year; //convert to intger
-        d["BC(total)"] = +d["BC(total)"];
-        d["Lower Mainland"] = +d["Lower Mainland"];
-        d["Vancouver Island"] = +d["Vancouver Island"];
-        d["Southern Interior"] = +d["Southern Interior"];
-        d["North Central"] = +d["North Central"];
+        d["Vancouver"] = +d["Vancouver"];
+        d["North Vancouver"] = +d["North Vancouver"];
+        d["West Vancouver"] = +d["West Vancouver"];
+        d["Burnaby"] = +d["Burnaby"];
+        d["Richmond"] = +d["Richmond"];
+        d["Coquitlam"] = +d["Coquitlam"];
+        d["Delta"] = +d["Delta"];
+        d["Surrey"] = +d["Surrey"];
         return d;
     })
     //.get() get data--returned data
@@ -44,7 +47,7 @@ d3.csv(url)
 
         var yScale = d3.scaleLinear()
             .domain([0, d3.max(data, function (d) {
-                return d["BC(total)"];
+                return d["Vancouver"];
             })])
             .range([height, 0]);
 
@@ -62,7 +65,7 @@ d3.csv(url)
                 return xScale(d.Year)
             })
             .y(function (d) {
-                return yScale(d["BC(total)"])
+                return yScale(d["Vancouver"])
             });
 
         var line2 = d3.line()
@@ -70,7 +73,7 @@ d3.csv(url)
                 return xScale(d.Year)
             })
             .y(function (d) {
-                return yScale(d["Lower Mainland"])
+                return yScale(d["North Vancouver"])
             });
 
         var line3 = d3.line()
@@ -78,7 +81,7 @@ d3.csv(url)
                 return xScale(d.Year)
             })
             .y(function (d) {
-                return yScale(d["Vancouver Island"])
+                return yScale(d["West Vancouver"])
             });
 
         var line4 = d3.line()
@@ -86,7 +89,7 @@ d3.csv(url)
                 return xScale(d.Year)
             })
             .y(function (d) {
-                return yScale(d["Southern Interior"])
+                return yScale(d["Burnaby"])
             });
 
         var line5 = d3.line()
@@ -94,7 +97,31 @@ d3.csv(url)
                 return xScale(d.Year)
             })
             .y(function (d) {
-                return yScale(d["North Central"])
+                return yScale(d["Richmond"])
+            });
+
+        var line6 = d3.line()
+            .x(function (d) {
+                return xScale(d.Year)
+            })
+            .y(function (d) {
+                return yScale(d["Coquitlam"])
+            });
+
+        var line7 = d3.line()
+            .x(function (d) {
+                return xScale(d.Year)
+            })
+            .y(function (d) {
+                return yScale(d["Delta"])
+            });
+
+        var line8 = d3.line()
+            .x(function (d) {
+                return xScale(d.Year)
+            })
+            .y(function (d) {
+                return yScale(d["Surrey"])
             });
 
         //draw line charts
@@ -114,19 +141,37 @@ d3.csv(url)
         attr("d", line3(data))
             .attr("fill", "none")
             .attr("stroke-width", 2)
-            .attr("stroke", "blueviolet");
+            .attr("stroke", "navy");
 
         chartGroup.append("path").
         attr("d", line4(data))
             .attr("fill", "none")
             .attr("stroke-width", 2)
-            .attr("stroke", "green");
+            .attr("stroke", "purple");
 
         chartGroup.append("path").
         attr("d", line5(data))
             .attr("fill", "none")
             .attr("stroke-width", 2)
             .attr("stroke", "grey");
+
+        chartGroup.append("path").
+        attr("d", line6(data))
+            .attr("fill", "none")
+            .attr("stroke-width", 2)
+            .attr("stroke", "green");
+
+        chartGroup.append("path").
+        attr("d", line7(data))
+            .attr("fill", "none")
+            .attr("stroke-width", 2)
+            .attr("stroke", "aqua");
+
+        chartGroup.append("path").
+        attr("d", line8(data))
+            .attr("fill", "none")
+            .attr("stroke-width", 2)
+            .attr("stroke", "red");
 
         //create the group for axis
         chartGroup.append("g")
